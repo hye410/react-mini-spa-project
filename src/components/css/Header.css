@@ -1,0 +1,14 @@
+header{
+  background-color:#8DBDF6;
+}
+
+#header{
+  width:1200px;
+  margin:0 auto;
+  padding : 40px 0;
+}
+
+#header>h1>a{
+  color:#fff;
+  font-size:48px;
+}

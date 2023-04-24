@@ -1,0 +1,16 @@
+
+#about>figure{
+  padding : 10px ;
+  margin-bottom : 50px;
+  text-align: center;
+}
+
+#about>figure>img{
+  margin-bottom: 35px;
+}
+
+#about>figure>figcaption{
+  text-align: justify;
+  font-size: 18px;
+  line-height: 30px;
+}

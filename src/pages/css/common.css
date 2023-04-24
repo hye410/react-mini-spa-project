@@ -1,0 +1,27 @@
+
+article{
+  width: 1200px;
+  margin:0 auto;
+}
+
+a{
+  text-decoration-line: none;
+  cursor: pointer;
+}
+
+.hide{
+  width:0; height:0;
+  font-size: 0px; line-height: 0px;
+  position:absolute; visibility: hidden;
+}
+
+article>h3{
+  text-align: center;
+  font-size: 40px;
+  padding : 50px 0 ;
+  margin-bottom: 20px;
+}
+
+button{
+  cursor: pointer;
+}
