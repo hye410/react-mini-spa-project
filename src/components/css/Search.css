@@ -1,0 +1,39 @@
+
+#search{
+  width : 70%;
+  margin: 0 auto 50px;
+  padding : 35px 0;
+  border : 1px solid #a1a1a1;
+}
+
+#search>p{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom : 5px;
+}
+
+#search>p>svg{
+  margin : 0 5px;
+}
+
+#search>p>input{
+  width : 300px;
+  padding : 3px 0;
+  border : none;
+  text-indent: 7px;
+  margin : 0 5px;
+}
+
+#search>p>button{
+  border : none;
+  padding : 3px 7px;
+}
+
+#search>span{
+  display: block;
+  margin : 0 auto;
+  width : 45%;
+  height : 2px;
+  background-color: #dbdada;
+}

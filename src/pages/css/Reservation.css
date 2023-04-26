@@ -1,8 +1,27 @@
 
 #reservation>div{
   border : 2px solid #cdcdcd;
-  padding : 150px 30px;
+  padding : 60px 30px 150px;
   margin-bottom : 50px;
+}
+
+#reservation>div>section{
+  /* background-color: pink; */
+  text-align: center;
+  padding : 30px 0;
+}
+
+#reservation>div>section>h4{
+  font-size : 27px;
+  margin-bottom : 25px;
+}
+
+#reservation>div>section>ol{
+  width : 70%;
+  margin : 0 auto;
+  border : 1px solid #000;
+  padding : 30px 0;
+  line-height: 35px;
 }
 
 #reservation>div>form{
@@ -34,6 +53,17 @@
   width : 200px;
   margin: 5px;
   margin-bottom : 20px;
+}
+
+#reservation>div>form>div.react-datepicker-wrapper{
+  width : 200px;
+  margin : 5px;
+  margin-bottom:20px;
+}
+
+#reservation>div>form div.react-datepicker__input-container>input{
+  width : 200px;
+  padding : 3px;
 }
 
 #reservation>div>form>button{
