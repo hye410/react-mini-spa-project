@@ -1,7 +1,8 @@
 function Error(){
-  return(
-    <div>404에러</div>
-  )
-}
+  <div>
+    error
+  </div>
+};
+
 
 export default Error;

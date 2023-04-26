@@ -6,6 +6,7 @@ import Reservation from './pages/Reservation';
 import Post from './pages/Post';
 import Map from './pages/Map';
 import Error from './pages/Error';
+import Toy from "./pages/Toy";
 
 function Main(){
   return(
@@ -17,7 +18,8 @@ function Main(){
           <Route path="/reservation" element={<Reservation />}/>
           <Route path="/post" element={<Post />}/>
           <Route path="/map" element={<Map />}/>
-          <Route path="/error" element={<Error />}/>
+          <Route path="*" element={<Error />}/>
+          <Route path="/toy" element={<Toy />} />
         </Routes>
       </App>
     </BrowserRouter>
