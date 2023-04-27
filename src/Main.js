@@ -7,6 +7,7 @@ import Post from './pages/Post';
 import Map from './pages/Map';
 import Error from './pages/Error';
 import Toy from "./pages/Toy";
+import DetailInfo from "./pages/DetailInfo";
 
 function Main(){
   return(
@@ -16,10 +17,17 @@ function Main(){
           <Route path="/" element={<Home />}/>
           <Route path="/about" element={<About />}/>
           <Route path="/reservation" element={<Reservation />}/>
-          <Route path="/post" element={<Post />}/>
+          <Route path="/post">
+            <Route index element={<Post />}/>
+            <Route path="/post/:id" element={<DetailInfo />}/>
+          </Route>
           <Route path="/map" element={<Map />}/>
           <Route path="*" element={<Error />}/>
-          <Route path="/toy" element={<Toy />} />
+          {/* <Route path="/toy" element={<Toy />} /> */}
+          <Route path="/toy">
+            <Route index element={<Toy />} />
+            <Route path="/toy/:id" element={<DetailInfo />}/>
+          </Route>
         </Routes>
       </App>
     </BrowserRouter>

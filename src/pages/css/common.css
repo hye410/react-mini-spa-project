@@ -7,6 +7,7 @@ article{
 a{
   text-decoration-line: none;
   cursor: pointer;
+  color : #000;
 }
 
 .hide{
