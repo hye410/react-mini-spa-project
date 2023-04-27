@@ -1,10 +1,21 @@
-import { Link } from 'react-router-dom';
-import Data from '../reservationInfo2.json';
+import { Link } from "react-router-dom";
+import { FilterData } from "../api/api";
+import { useEffect, useState } from "react";
 
 function Toy(){
+  const Data = FilterData();
+  const[data,setData] = useState(Data);
 
   return(
-    Data.map(item => <div key={item.id}><Link to={`/toy/${item.id}`}>{item.name}</Link></div>)
+    <ul>
+      {data.map(item => 
+      <li key={item.id}>
+        <Link to={`/toy/${item.id}`}>
+        {item.name}
+        </Link>
+      </li>
+      )}
+    </ul>
   )
 }
 

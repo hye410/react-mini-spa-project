@@ -8,6 +8,7 @@ import Map from './pages/Map';
 import Error from './pages/Error';
 import Toy from "./pages/Toy";
 import DetailInfo from "./pages/DetailInfo";
+import ToyDetail from "./pages/ToyDetail";
 
 function Main(){
   return(
@@ -26,7 +27,7 @@ function Main(){
           {/* <Route path="/toy" element={<Toy />} /> */}
           <Route path="/toy">
             <Route index element={<Toy />} />
-            <Route path="/toy/:id" element={<DetailInfo />}/>
+            <Route path="/toy/:id" element={<ToyDetail />}/>
           </Route>
         </Routes>
       </App>
