@@ -9,6 +9,7 @@ import Error from './pages/Error';
 import Toy from "./pages/Toy";
 import DetailInfo from "./pages/DetailInfo";
 import ToyDetail from "./pages/ToyDetail";
+import Toy2 from "./pages/Toy2";
 
 function Main(){
   return(
@@ -23,12 +24,13 @@ function Main(){
             <Route path="/post/:id" element={<DetailInfo />}/>
           </Route>
           <Route path="/map" element={<Map />}/>
-          <Route path="*" element={<Error />}/>
+          <Route path="/error" element={<Error />}/>
           {/* <Route path="/toy" element={<Toy />} /> */}
           <Route path="/toy">
             <Route index element={<Toy />} />
-            <Route path="/toy/:id" element={<ToyDetail />}/>
+            <Route path="/toy:id" element={<ToyDetail />} />
           </Route>
+          <Route path="/toy2" element={<Toy2 />} />
         </Routes>
       </App>
     </BrowserRouter>
