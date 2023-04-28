@@ -3,8 +3,20 @@ import { FilterData } from "../api/api";
 import { useEffect, useState } from "react";
 
 function Toy(){
-  const Data = FilterData();
+  let Data = FilterData();
   const[data,setData] = useState(Data);
+  const deletedId = JSON.parse(sessionStorage.getItem('key')) || [];
+  
+  const newData = Data.filter(info => {
+    for(let i of deletedId) {
+      if(info.id === i) return false;
+    }
+    return true;
+  });
+
+  useEffect(()=>{
+    setData(newData)
+  },[])
 
   return(
     <ul>

@@ -1,11 +1,17 @@
 import { Link, useParams } from "react-router-dom";
-import Data from '../reservationInfo.json';
 import './css/DetailInfo.css';
+import { FromData } from "../api/api";
 
 function DetailInfo(){
   const { id } = useParams();
-//배열 안에서 객체를 찾을 것이기 때문에 find,,
-  const information = Data.find( data => data.id === Number(id));
+  const information = FromData(id);
+
+  function cancel(id){
+    const getId = JSON.parse(sessionStorage.getItem('id')) || [];
+    getId.push(id);
+    sessionStorage.setItem('id',JSON.stringify(getId));
+    window.location="/post"
+  }
 
   return(
     <article>
@@ -29,7 +35,11 @@ function DetailInfo(){
           돌아가기
           </button>
         </Link>
-          <button type="button">예약취소</button>
+          <button 
+          type="button"
+          onClick={()=>cancel(information.id)}>
+            예약취소
+          </button>
         </p>
       </div>
     </article>

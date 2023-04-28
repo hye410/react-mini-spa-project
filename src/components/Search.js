@@ -5,10 +5,6 @@ import { FiSearch } from "react-icons/fi";
 function Search({Data,data,setData}){
   const [myText,setMyText] = useState('');
 
-  if(myText === ''){
-    setData(Data)
-  }
-
   const mySearchList =
   data.filter(info => info.name.includes(myText) || info.phone.includes(myText));
 
@@ -22,7 +18,7 @@ function Search({Data,data,setData}){
          />
         <button 
         type="button"
-        onClick={() => setData(mySearchList)}
+        // onClick={() => setData(mySearchList)}
         >
           검색
         </button>

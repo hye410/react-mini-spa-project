@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function ReservationInfo({info}){
+function ReservationInfo({data,setData}){
 
   const maskingName = (name) => {
     if(name.length <= 2){     
@@ -14,15 +14,17 @@ function ReservationInfo({info}){
   };
 
   return(
-    <tr>
-      <td>{info.id}</td>
-      <td>
-        <Link to={`/post/${info.id}`}>
-          {maskingName(info.name)}
-        </Link>
-      </td>
-      <td>{maskingNumber(info.phone)}</td>
-    </tr>           
+    data.map(info=> 
+      <tr>
+        <td>{info.id}</td>
+        <td>
+          <Link to={`/post/${info.id}`}>
+            {maskingName(info.name)}
+          </Link>
+        </td>
+        <td>{maskingNumber(info.phone)}</td>
+      </tr>
+    )      
   )
 }
 
