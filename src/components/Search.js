@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import './css/Search.css';
 import { FiSearch } from "react-icons/fi";
 
@@ -9,17 +9,16 @@ function Search({newData,data,setData}){
   data.filter(info => info.name.includes(myText) || info.phone.includes(myText));
 
   function change(){
-    if(myText == ''){
+    if(myText === ''){
       return setData(newData);
     }
     return setData(mySearchList)
   }
 
-  useEffect(()=>{
-    if(myText==''){
-      return setData(newData)
-    }
-  },[myText])
+  // useEffect(()=>{
+  //   if(myText === ''){
+  //     return setData(newData)}   
+  // },[myText])
 
 
   return(

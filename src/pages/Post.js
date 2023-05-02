@@ -2,7 +2,7 @@ import ReservationInfo from '../components/ReservationInfo';
 import Search from '../components/Search';
 import './css/Post.css';
 import { FilterData } from '../api/api';
-import { useCallback, useEffect, useState } from 'react';
+import { useState } from 'react';
 
 function Post(){
   const Data = FilterData();  
@@ -15,6 +15,7 @@ function Post(){
     }
     return true;
   });
+
   const[data,setData] = useState(newData);
 
   return(

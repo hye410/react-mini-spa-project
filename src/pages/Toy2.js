@@ -1,31 +1,41 @@
-import { useCallback, useEffect, useState } from "react";
+import ReservationInfo from '../components/ReservationInfo';
+import Search from '../components/Search';
+import './css/Post.css';
+import { FilterData } from '../api/api';
+import { useState } from 'react';
 
 function Toy2(){
+  const Data = FilterData();  
+  // const[data,setData] = useState(Data);
+  const deletedId = JSON.parse(sessionStorage.getItem('id')) || 'false';
 
-  const[number,setNumber] = useState(0);
-  const[toggle,setToggle] = useState(true);
+  const newData = Data.filter(info => {
+    for(let i of deletedId) {
+      if(info.id === i) return false;
+    }
+    return true;
+  });
+  const[data,setData] = useState(newData);
 
-  const someFunction = useCallback(() => {
-    console.log('someFunc number : ',number);
-    return;
-  },[number]);
-
-  useEffect(()=>{
-    console.log('썸펑션이 변경되었습니다.')
-  },[someFunction])
-  // state가 변경될 때 마다 함수형 컴포넌트가 새로 랜더링되니까 저 sumfunction의 메모리 주소값이 바뀌어서 useEffect가 계속 바뀜..
-
-   return(
-    <div>
-      <input
-      type="number"
-      value={number}
-      onChange={(e)=>setNumber(e.target.value)}
-      />
-      <br />
-      <button onClick={() => someFunction()}>Call someFunc</button>
-      <button onClick={()=>setToggle(!toggle)}>{toggle.toString()}</button>
-    </div>
+  return(
+    <article id="toy2">
+      <h3>예약확인</h3>
+      <div>
+        <Search newData={newData} data={data} setData={setData}/>
+        <table>
+          <thead>
+            <tr>              
+              <th>번호</th>
+              <th>이름</th>
+              <th>연락처</th>
+            </tr>
+          </thead>
+          <tbody>
+            {data.map(info => <ReservationInfo key={info.id} info={info}/>)}          
+          </tbody>
+        </table>
+      </div>
+    </article>
   )
 }
 
