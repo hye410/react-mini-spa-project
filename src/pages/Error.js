@@ -1,6 +1,10 @@
+import './css/Error.css';
+
 function Error(){
   return(
-    <div>에러입니다.</div>
+    <article id="error">
+      <h3><img src="/images/404.jpg" alt="404에러"/></h3>
+    </article>
   )
 }
 

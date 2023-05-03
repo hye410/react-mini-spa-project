@@ -5,9 +5,7 @@ import { FilterData } from '../api/api';
 import { useState } from 'react';
 
 function Post(){
-  // const Data = FilterData();
   const Data = JSON.parse(sessionStorage.getItem('Data')) || FilterData();
-  // const[data,setData] = useState(Data);
   const deletedId = JSON.parse(sessionStorage.getItem('id')) || 'false';
 
   const newData = Data.filter(info => {

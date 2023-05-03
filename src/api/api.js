@@ -1,4 +1,4 @@
-import Data from './reservationInfo2.json';
+import Data from './reservationInfo.json';
 
 const AddedData = JSON.parse(sessionStorage.getItem('Data')) || Data;
 

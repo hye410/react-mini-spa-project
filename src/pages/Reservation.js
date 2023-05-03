@@ -2,7 +2,7 @@ import { useState } from 'react';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import './css/Reservation.css';
-import Data from '../api/reservationInfo2.json';
+import Data from '../api/reservationInfo.json';
 
 function Reservation(){
   const Today = new Date(new Date().setHours(new Date().getHours() + 1,0))
@@ -11,8 +11,6 @@ function Reservation(){
   const offset = new Date().getTimezoneOffset() * 1000* 60;
   const today = new Date(Date.now() - offset);
   const birthMax = today.toISOString().slice(0,10);
-  // const minDate = new Date(today.setHours(today.getHours() + 1)).toISOString().slice(0,16);
-  // const maxDate = new Date(today.setMonth(today.getMonth() + 3)).toISOString().slice(0,10);
   const isWeekday = (date) => {
     const day = date.getDay();
     return day !== 0 && day !== 6;
@@ -37,9 +35,7 @@ function Reservation(){
     return sessionStorage.setItem('Data',JSON.stringify(DATA));
   }
 
-  function clear(){
-    return setAddedInfo(newInfo);
-  }
+
   return(
     <article id="reservation">
       <h3>진료예약</h3>
@@ -84,15 +80,6 @@ function Reservation(){
             <option>피부과</option>
           </select>
           <label htmlFor="userDate">예약일</label>
-          {/* <input 
-          type="datetime-local"
-          id="userDate" 
-          name="userDate"
-          required
-          defaultValue={Today}
-          min={minDate}
-          max={maxDate}
-          />           */}
           <DatePicker
             selected={startDate}
             showTimeSelect
@@ -106,7 +93,7 @@ function Reservation(){
             maxTime={new Date().setHours(18,30)}
             filterDate={isWeekday}
             onChange={(e) => {setStartDate(e);
-                              setAddedInfo({...addedInfo,date:startDate.toISOString().slice(0,10) + startDate.toISOString().slice(11,16)})
+                              setAddedInfo({...addedInfo,date:startDate.toISOString().slice(0,10) + ' ' + startDate.toISOString().slice(11,16)})
                       }}
           /> 
           <label htmlFor="userPhone">연락처</label>
@@ -126,11 +113,14 @@ function Reservation(){
           minLength="4"
           maxLength="4"
           pattern="[0-9]*"
+          required
           onChange={(e) => setAddedInfo({...addedInfo,password:e.target.value})}
           />
           <button 
-          type="button"
-          onClick={()=>{changeData(addedInfo); clear()}}
+          type="submit"
+          onClick={()=>{
+            changeData(addedInfo)
+          }}
           >
             예약완료
           </button>

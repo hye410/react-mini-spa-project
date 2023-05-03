@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-
 function ReservationInfo({info}){
 
   const maskingName = (name) => {
@@ -13,13 +11,20 @@ function ReservationInfo({info}){
     return num.substring(0,3) + "*".repeat(4) + num.substring(7,11) 
   };
 
+  const CheckingThePassword = () => {
+    let myPassword = prompt('비밀번호를 입력하세요.');
+    if(myPassword === info.password){
+      window.location = `/post/${info.id}`
+    }else{
+      alert('비밀번호를 다시 확인해주세요.')
+    }
+  }
+
   return(
       <tr>
         <td>{info.id}</td>
-        <td>
-          <Link to={`/post/${info.id}`}>
+        <td onClick={() => CheckingThePassword()}>
             {maskingName(info.name)}
-          </Link>
         </td>
         <td>{maskingNumber(info.phone)}</td>
       </tr>    

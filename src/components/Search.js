@@ -15,12 +15,6 @@ function Search({newData,data,setData}){
     return setData(mySearchList)
   }
 
-  // useEffect(()=>{
-  //   if(myText === ''){
-  //     return setData(newData)}   
-  // },[myText])
-
-
   return(
     <div id="search">
       <p>
@@ -31,7 +25,6 @@ function Search({newData,data,setData}){
          />
         <button 
         type="button"
-        // onClick={() => setData(mySearchList)}
         onClick={()=>change()}
         >
           검색
