@@ -6,7 +6,10 @@
   병원 예약 시스템에 중점을 두어 기획하였으니 그부분에 좀 더 중점을 두어 확인해 주시면 감사하겠습니다.
 
   ## 💡 Stack Used
-
+  - HTML5
+  - CSS3
+  - JavaScript
+  - React
 
   ## 💡 Plan of This Project
   <p>
@@ -16,7 +19,7 @@
   ## 💡 Difficulties In This Project
   ### 1. nav bar를 클릭하면 밑으로 내려오게 하고 싶은데 어떻게 하면 좋을까?<br />
    <p>
-   🙋‍♀️ css에 animation을 적용하고 싶었으나 어찌할 바를 모르다가 구글링을 통해class이름 역시 조건을 붙여 때에 따라 다르게 설정할 수 있다는 것을 알게되었고,<br />
+   🙋‍♀️ css에 animation을 적용하고 싶었으나 어찌할 바를 모르다가 구글링을 통해class이름 역시 조건을 붙여 때에 따라 다르게 설정할 수 있다는 것을 알게되었고,
    class name값에 따라 animation을 달리 적용하여 nav bar에 원하는 효과를 줄 수 있었다.<br />
    그런데 className이 slide-up일 경우는 animation이 적용되지 않는 문제가 발생하였다.<br/>
    toggle의 state값이 변하면서 페이지가 새로 랜더링 되어 toggle이 !false일 때 보이는 div가 사라졌기 때문이었다.<br />
