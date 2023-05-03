@@ -33,10 +33,13 @@ function Reservation(){
   const [addedInfo,setAddedInfo] = useState(newInfo);
 
   function changeData(info){
-    Data.push(info);
+    DATA.push(info);
     return sessionStorage.setItem('Data',JSON.stringify(DATA));
   }
 
+  function clear(){
+    return setAddedInfo(newInfo);
+  }
   return(
     <article id="reservation">
       <h3>진료예약</h3>
@@ -127,7 +130,7 @@ function Reservation(){
           />
           <button 
           type="button"
-          onClick={()=>{changeData(addedInfo);}}
+          onClick={()=>{changeData(addedInfo); clear()}}
           >
             예약완료
           </button>
