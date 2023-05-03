@@ -2,6 +2,7 @@ import { useState } from 'react';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import './css/Reservation.css';
+import Data from '../api/reservationInfo2.json';
 
 function Reservation(){
   const Today = new Date(new Date().setHours(new Date().getHours() + 1,0))
@@ -16,6 +17,25 @@ function Reservation(){
     const day = date.getDay();
     return day !== 0 && day !== 6;
   };
+
+  const DATA = JSON.parse(sessionStorage.getItem('Data')) || Data;
+
+  let newInfo = {
+    id : DATA.length + 1,
+    name : '',
+    birth : '',
+    kind : '',
+    date : '',
+    phone : '',
+    password : ''    
+  }
+
+  const [addedInfo,setAddedInfo] = useState(newInfo);
+
+  function changeData(info){
+    Data.push(info);
+    return sessionStorage.setItem('Data',JSON.stringify(DATA));
+  }
 
   return(
     <article id="reservation">
@@ -33,7 +53,14 @@ function Reservation(){
         </section>
         <form>
           <label htmlFor="userName">이름</label>
-          <input type="text" id="userName" name="userName" required autoFocus/>
+          <input 
+          type="text" 
+          id="userName" 
+          name="userName" 
+          required 
+          autoFocus
+          onChange={(e) => setAddedInfo({...newInfo,name:e.target.value})}
+          />
           <label htmlFor="userBirth">생년월일</label>
           <input 
           type="date" 
@@ -41,9 +68,13 @@ function Reservation(){
           name="userBirth"
           required
           max={birthMax}
+          onChange={(e) => setAddedInfo({...addedInfo,birth:e.target.value})}
            />
           <label htmlFor="userKind">진료과</label>
-          <select name="userKind">
+          <select 
+          name="userKind"
+          onChange={(e) => setAddedInfo({...addedInfo,kind:e.target.value})}
+          >
             <option>신경외과</option>
             <option>이비인후과</option>
             <option>류마티스과</option>
@@ -61,7 +92,6 @@ function Reservation(){
           />           */}
           <DatePicker
             selected={startDate}
-            onChange={(date) => setStartDate(date)}
             showTimeSelect
             timeFormat="HH:mm"
             timeIntervals={30}
@@ -72,7 +102,10 @@ function Reservation(){
             minTime={new Date().setHours(9,0)}
             maxTime={new Date().setHours(18,30)}
             filterDate={isWeekday}
-          />
+            onChange={(e) => {setStartDate(e);
+                              setAddedInfo({...addedInfo,date:startDate.toISOString().slice(0,10) + startDate.toISOString().slice(11,16)})
+                      }}
+          /> 
           <label htmlFor="userPhone">연락처</label>
           <input 
           type="tel"
@@ -80,6 +113,7 @@ function Reservation(){
           name="userPhone" 
           required
           placeholder="하이픈('-')없이 입력해주세요."
+          onChange={(e) => setAddedInfo({...addedInfo,phone:e.target.value})}
           />
           <label htmlFor="userPW">비밀번호</label>
           <input 
@@ -89,8 +123,14 @@ function Reservation(){
           minLength="4"
           maxLength="4"
           pattern="[0-9]*"
+          onChange={(e) => setAddedInfo({...addedInfo,password:e.target.value})}
           />
-          <button type="submit">예약완료</button>
+          <button 
+          type="button"
+          onClick={()=>{changeData(addedInfo);}}
+          >
+            예약완료
+          </button>
         </form>
       </div>
     </article>

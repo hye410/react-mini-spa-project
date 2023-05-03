@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { AddedData } from '../api/api';
+import Data from '../api/reservationInfo2.json';
 
 function Toy(){
   const Today = new Date(new Date().setHours(new Date().getHours() + 1,0))
@@ -17,19 +17,37 @@ function Toy(){
     return day !== 0 && day !== 6;
   };
 
- let name;
- let birth ;
+  // console.log(
+  //   startDate.toISOString().slice(0,10) +
+    
+  //   startDate.toISOString().slice(11,16)
+  // )
 
- const information = (name,birth) => {
-  const newInfo = {
-    name : name,
-    birth : birth
+  const list = JSON.parse(sessionStorage.getItem('Data')) || Data;
+
+  console.log(list)
+
+  let newInfo = {
+    id : list.length + 1 ,
+    name : '',
+    birth : '',
+    kind : '',
+    date : '',
+    phone : '',
+    password : ''
   }
 
-  return AddedData(newInfo);
- }
+  
 
- console.log(information())
+  const [addInfo, setAddInfo] = useState(newInfo);
+  console.log(addInfo)
+
+  function change(info){
+    list.push(info);
+    return sessionStorage.setItem('Data',JSON.stringify(list));
+  }
+
+ 
 
 
   return(
@@ -54,7 +72,7 @@ function Toy(){
           name="userName" 
           required 
           autoFocus
-          // onChange={(e)=>name = e.target.value}
+          onChange={(e)=>setAddInfo({...newInfo,name:e.target.value})}
           />
           <label htmlFor="userBirth">생년월일</label>
           <input 
@@ -63,10 +81,11 @@ function Toy(){
           name="userBirth"
           required
           max={birthMax}
-          onChange={(e)=>birth = e.target.value}
+          onChange={(e)=>setAddInfo({...addInfo,birth:e.target.value})}
            />
           <label htmlFor="userKind">진료과</label>
           <select name="userKind"
+          onChange={(e)=>setAddInfo({...addInfo,kind:e.target.value})}
           >
             <option>신경외과</option>
             <option>이비인후과</option>
@@ -85,7 +104,11 @@ function Toy(){
           />           */}
           <DatePicker
             selected={startDate}
-            onChange={(date) => setStartDate(date)}
+            onChange={(e) => {
+                              setStartDate(e); 
+                              setAddInfo({...addInfo,date:startDate.toISOString().slice(0,10) + startDate.toISOString().slice(11,16)})
+                              // console.log(startDate)
+                            }}
             showTimeSelect
             timeFormat="HH:mm"
             timeIntervals={30}
@@ -96,6 +119,7 @@ function Toy(){
             minTime={new Date().setHours(9,0)}
             maxTime={new Date().setHours(18,30)}
             filterDate={isWeekday}
+            // onChange={(e)=>setAddInfo({...newInfo,date:e.target.value})}
           />
           <label htmlFor="userPhone">연락처</label>
           <input 
@@ -104,6 +128,7 @@ function Toy(){
           name="userPhone" 
           required
           placeholder="하이픈('-')없이 입력해주세요."
+          onChange={(e)=>setAddInfo({...addInfo,phone:e.target.value})}
           />
           <label htmlFor="userPW">비밀번호</label>
           <input 
@@ -113,11 +138,12 @@ function Toy(){
           minLength="4"
           maxLength="4"
           pattern="[0-9]*"
+          onChange={(e)=>setAddInfo({...addInfo,password:e.target.value})}
           />
           <button 
-          type="button"
-          onClick={()=>information(name,birth)}
-          >{console.log(information())}
+          type="submit"
+          onClick={()=>{change(addInfo)}}
+          >
             예약완료
           </button>
         </form>

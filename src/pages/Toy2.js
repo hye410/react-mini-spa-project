@@ -5,7 +5,8 @@ import { FilterData } from '../api/api';
 import { useState } from 'react';
 
 function Toy2(){
-  const Data = FilterData();  
+  // const Data = JSON.parse(sessionStorage.getItem('Data'))
+  const Data = FilterData();
   // const[data,setData] = useState(Data);
   const deletedId = JSON.parse(sessionStorage.getItem('id')) || 'false';
 
