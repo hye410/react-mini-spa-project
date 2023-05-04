@@ -16,6 +16,9 @@
   <img src="./Plan.png" alt="plan" />
   </p>
 
+  ## 💡 Function Description
+  <p><a href="https://drive.google.com/file/d/1GOaCtZSrbtgtrvSQ8LYKooJvGuW46aV5/view?usp=sharing" target="_blank">기능 설명 보러가기</a></p>
+
   ## 💡 Difficulties In This Project
   ### 1. nav bar를 클릭하면 밑으로 내려오게 하고 싶은데 어떻게 하면 좋을까?<br />
    <p>
@@ -43,7 +46,7 @@
   <p>
     🙋‍♀️
     우선 예약하기, 예약 리스트 모두와 같은 Data를 써야한다는 생각이 들었다.<br /> 처음엔 props로 연결되어 있지 않은 아이들은 어떻게 주고 받아야 할지 감이 잡히지 않았다. <br />
-    고민 끝에 sessionStorage를 사용해 보자라는 생각이 들었고 조금 버벅였지만 결국 원하는 대로 작동하였다.<br /> 이 기회를 통해 sessionStorage를 활용하는 방법에 대해 좀 더 깊게 알 수 있었다.
+    고민 끝에 sessionStorage를 떠올렸고 sessionStorage를 많이 사용해보지 않아 처음엔 조금 버벅였지만 여러번의 시도 끝에 결국 원하는 대로 작동하였다.<br /> 이 기회를 통해 sessionStorage를 활용하는 방법에 대해 좀 더 깊게 알 수 있었다.
   </p>
 
 ## 💡 What I felt after the project
