@@ -16,11 +16,11 @@ function Nav({toggle,setToggle,reset}){
     }
   },[toggle]);
 
-
+ 
   return(
-    <nav>
-      <p onClick={() => setToggle(!toggle)}>
-        <BiChevronDown />
+    <nav onMouseEnter={() => setToggle(true)} onMouseLeave={() => setToggle(false)}>
+      <p>
+        <BiChevronDown onMouseEnter={() => setToggle(true)} onMouseLeave={() => setToggle(false)}/>
       </p>
       {animation && 
           <div id="nav"  className={toggle ? `nav-slide-down` : `nav-slide-up`}>

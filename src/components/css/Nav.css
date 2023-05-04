@@ -6,9 +6,13 @@ nav{
 }
 
 
+nav>p{
+  padding : 6px 0;
+}
+
 nav>p>svg{
-  font-size : 20px;
-  color : #fff;
+  font-size : 27px;
+  color : #8f8d97;
   font-weight: bold;
   cursor: pointer;
 }
@@ -21,7 +25,7 @@ nav>p>svg{
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
-  padding : 30px 0;
+  padding : 40px 0;
 }
 
 #nav>ul>li>a{

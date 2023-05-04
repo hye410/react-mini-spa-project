@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import './css/Reservation.css';
@@ -22,19 +22,31 @@ function Reservation(){
     id : DATA.length + 1,
     name : '',
     birth : '',
-    kind : '',
-    date : '',
+    kind : '신경외과',
+    date : startDate.toISOString().slice(0,10) + ' ' + startDate.toISOString().slice(11,16),
     phone : '',
     password : ''    
   }
 
   const [addedInfo,setAddedInfo] = useState(newInfo);
 
-  function changeData(info){
-    DATA.push(info);
-    return sessionStorage.setItem('Data',JSON.stringify(DATA));
-  }
 
+ 
+  function changeData(info){
+    if(addedInfo.name == '' || addedInfo.birth == '' || addedInfo.phone == '' || addedInfo.password == ''){
+     return alert('내용을 모두 작성하여 주십시오.')
+    }else{
+      DATA.push(info);
+      sessionStorage.setItem('Data',JSON.stringify(DATA));
+      alert('예약이 완료되었습니다.');
+    }
+    }
+  
+    useEffect(()=>{
+      if(changeData){
+        window.location = "/post"
+      }
+    },[changeData])
 
   return(
     <article id="reservation">
@@ -92,9 +104,12 @@ function Reservation(){
             minTime={new Date().setHours(9,0)}
             maxTime={new Date().setHours(18,30)}
             filterDate={isWeekday}
-            onChange={(e) => {setStartDate(e);
-                              setAddedInfo({...addedInfo,date:startDate.toISOString().slice(0,10) + ' ' + startDate.toISOString().slice(11,16)})
-                      }}
+            required
+            onChange={(e) => {
+                      setStartDate(e);
+                      setAddedInfo({...addedInfo,date:startDate.toISOString().slice(0,10) + ' ' + startDate.toISOString().slice(11,16)})
+                        }
+                      }
           /> 
           <label htmlFor="userPhone">연락처</label>
           <input 
@@ -118,9 +133,7 @@ function Reservation(){
           />
           <button 
           type="submit"
-          onClick={()=>{
-            changeData(addedInfo)
-          }}
+          onClick={()=>{changeData(addedInfo)}}
           >
             예약완료
           </button>
