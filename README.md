@@ -1,25 +1,25 @@
 # Mini_SPA_Project
 
-## 💡 About This Project
-  Mini_SPA_Project는 이름에서 알 수 있듯이 간단한 single page를 만들어 보고 싶어 기획하였습니다.<br />
-  기존에 react를 활용하여 만든 원페이지들만으로는 저를 어필하기에 조금은 부족한 느낌이 들었기 때문입니다.<br />
-  병원 예약 시스템에 중점을 두어 기획하였으니 그부분에 좀 더 중점을 두어 확인해 주시면 감사하겠습니다.
-
-  ## 💡 Stack Used
+## 💡 프로젝트 소개
+간단한 SPA 페이지로, 병원 예약 기능에 중점을 두어 만들었다.<br />
+사용자는 병원 예약을 할 수 있고 자신이 예약한 내용을 비밀번호를 입력하고 확인할 수 있으며,
+예약을 취소할 수 있다.  
+  
+  ## 💡 사용 스택
   - HTML5
   - CSS3
   - JavaScript
   - React
 
-  ## 💡 Plan of This Project
+  ## 💡 디자인
   <p>
   <img src="./Plan.png" alt="plan" />
   </p>
 
-  ## 💡 Function Description
+  ## 💡 기능 설명
   <p><a href="https://drive.google.com/file/d/1GOaCtZSrbtgtrvSQ8LYKooJvGuW46aV5/view?usp=sharing" target="_blank">기능 설명 보러가기</a></p>
 
-  ## 💡 Difficulties In This Project
+  ## 💡 프로젝트를 통해 배운점
   ### 1. nav bar를 클릭하면 밑으로 내려오게 하고 싶은데 어떻게 하면 좋을까?<br />
    <p>
    🙋‍♀️ css에 animation을 적용하고 싶었으나 어찌할 바를 모르다가 구글링을 통해class이름 역시 조건을 붙여 때에 따라 다르게 설정할 수 있다는 것을 알게되었고,
@@ -33,7 +33,7 @@
   <p>
   🙋‍♀️
   구글링을 하였는데 jquery datepicker를 사용하란 글이 많이 있었다.<br /> 혹시 react에도 datepicker가 있을까 싶어 검색해봤는데 있길래 설치하였고,<br />
-  datepicker 홈페이지를 보며 연구해서 원하는 대로 출력할 수 있었다.
+  datepicker 홈페이지를 보며, 기존의 코드를 조금씩 수정하며 연구해서 내가 원하는 형태로 출력할 수 있었다.
   </p>
 
   ### 3. 예약일 maxTime을 6시 30분으로 설정하고 싶은데 setHours와 setMinutes를 동시에 사용할 수 있는 방법이 없을까?<br />
@@ -46,11 +46,13 @@
   <p>
     🙋‍♀️
     우선 예약하기, 예약 리스트 모두와 같은 Data를 써야한다는 생각이 들었다.<br /> 처음엔 props로 연결되어 있지 않은 아이들은 어떻게 주고 받아야 할지 감이 잡히지 않았다. <br />
-    고민 끝에 sessionStorage를 떠올렸고 sessionStorage를 많이 사용해보지 않아 처음엔 조금 버벅였지만 여러번의 시도 끝에 결국 원하는 대로 작동하였다.<br /> 이 기회를 통해 sessionStorage를 활용하는 방법에 대해 좀 더 깊게 알 수 있었다.
+    고민 끝에 sessionStorage를 떠올렸고 sessionStorage를 많이 사용해보지 않아 처음엔 조금 버벅였지만 여러번의 시도 끝에 결국 원하는 대로 작동하였다.<br />
+    이 기회를 통해 sessionStorage를 활용하는 방법에 대해 잘 알게 되었다.
   </p>
 
-## 💡 What I felt after the project
+## 💡 프로젝트 후 느낀점
   <p>
   그동안은 학원에서 배웠던 것들을 중점으로 페이지를 만들었다면<br /> 이번엔 처음부터 기획, 설계를 다 하고
-  배우지 않았던 것이라도 구글링을 통해 배워가며 적용시키려고 애썼다.<br /> 조금 헤매는 부분도 있고, 처음 생각했던 설계대로 실행되지 않은 부분도 있었지만<br /> 그래도 끝까지 혼자 힘으로 (with google) 해내어 뿌듯하고 더 성장할 수 있는 계기가 된 것 같아 기쁘다.
+  배우지 않았던 것이라도 구글링을 통해 배워가며 적용시키려고 애썼다.<br /> 조금 헤매는 부분도 있고, 처음 생각했던 설계대로 실행되지 않은 부분도 있었지만<br />
+  그래도 끝까지 혼자 힘으로 해내어 뿌듯하고 더 성장한 것 같아 기쁘다.
   </p>
