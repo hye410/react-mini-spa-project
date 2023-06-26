@@ -5,15 +5,10 @@ import { useState } from 'react';
 
 function App({children}) {
 
-  const [toggle,setToggle] = useState(false);
-  const reset = () => {
-    setToggle(false);
-  }
-
   return (
     <>
-    <Header toggle={toggle} setToggle={setToggle} reset={reset}/>
-    <Nav toggle={toggle} setToggle={setToggle} reset={reset}/>
+    <Header />
+    <Nav />
     {children}
     <Footer />
     </>

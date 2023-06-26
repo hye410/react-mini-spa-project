@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import './css/Reservation.css';
@@ -33,7 +33,10 @@ function Reservation(){
 
  
   function changeData(info){
-    if(addedInfo.name == '' || addedInfo.birth == '' || addedInfo.phone == '' || addedInfo.password == ''){
+    if( addedInfo.name === '' 
+      || addedInfo.birth === ''
+      || addedInfo.phone === '' 
+      || addedInfo.password === '' ) {
      return alert('내용을 모두 작성하여 주십시오.')
     }else{
       DATA.push(info);
@@ -42,12 +45,6 @@ function Reservation(){
     }
     }
   
-    useEffect(()=>{
-      if(changeData){
-        window.location = "/post"
-      }
-    },[changeData])
-
   return(
     <article id="reservation">
       <h3>진료예약</h3>
