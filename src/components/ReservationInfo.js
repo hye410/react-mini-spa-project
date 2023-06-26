@@ -12,7 +12,7 @@ function ReservationInfo({info}){
   };
 
   const CheckingThePassword = () => {
-    let myPassword = prompt('비밀번호를 입력하세요.');
+    let myPassword = prompt('비밀번호를 입력하세요. 기본 비밀번호는 전화번호 뒤 4자리입니다.');
     if(myPassword === info.password){
       window.location = `/post/${info.id}`
     }else{
